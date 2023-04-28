@@ -1,16 +1,10 @@
 import java.util.ArrayList;
 import java.util.List;
 
-public class Order{
+public class Order {
 
-   List<Meals> meals;
-   List<Drinks> drinks;
-
-
-    public Order(List<Meals> meals, List<Drinks> drinks) {
-        this.meals = new ArrayList<>();
-        this.drinks = new ArrayList<>();
-    }
+    List<Meals> meals = new ArrayList<>();
+    List<Drinks> drinks = new ArrayList<>();
 
     public void addMeal(Meals meal) {
         meals.add(meal);
@@ -20,5 +14,17 @@ public class Order{
         drinks.add(drink);
     }
 
+    public int calculateTotalPrice() {
+        int totalPrice = 0;
 
+        for (Meals meal : meals) {
+            totalPrice += meal.getPrice();
+        }
+
+        for (Drinks drink : drinks) {
+            totalPrice += drink.getPrice();
+        }
+
+        return totalPrice;
+    }
 }

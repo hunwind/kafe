@@ -20,6 +20,12 @@ public class RestaurantManagement {
         allDrinks.add(drink2);
 
         printMenu(allMeals, allDrinks);
+
+        Order order1 = new Order();
+        order1.addMeal(pizza1);
+        order1.addDrink(drink2);
+
+        System.out.println("Total price: " + order1.calculateTotalPrice());
     }
 
     public static void printMenu(List<Meals> allMeals, List<Drinks> allDrinks) {
